@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!--slidebar-->
+        <div class="bg-light p-3" style="width: 250px; height: 100vh;">
+            <div class="text-center mb-4">
+                <img src="{{ url_for('static', filename='profile.png') }}" alt="Profile Image" class="rounded-circle" style="width: 100px; height: 100px;">
+                <h5 class="mt-2">{{ full_name }}</h5>
+            </div>
+            <div class="mt-4">
+                <h6 class="text-muted">Management</h6>
+                <ul class="list-unstyled">
+                    <li><a href="{{ url_for('index') }}" class="d-block py-2">Dashboard</a></li>
+                    <li><a href="{{ url_for('add_expense') }}" class="d-block py-2">Add Expenses</a></li>
+                    <li><a href="{{ url_for('manage_expenses') }}" class="d-block py-2">Manage Expenses</a></li>
+                </ul>
+                <h6 class="text-muted mt-4">Settings</h6>
+                <ul class="list-unstyled">
+                    <li><a href="{{ url_for('profile') }}" class="d-block py-2">Profile</a></li>
+                </ul>
+                <h6 class="text-muted mt-4">Contact</h6>
+                <ul class="list-unstyled">
+                    <li><a href="{{ url_for('contact') }}" class="d-block py-2">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex-grow-1 p-4">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

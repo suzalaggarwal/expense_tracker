@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="text-center">Update Profile</h2>
+<div class="text-center">
+    <img src="{{ url_for('static', filename='profile.png') }}" alt="Profile Image" class="rounded-circle mb-3" style="width: 100px; height: 100px;">
+</div>
+<form method="POST" action="{{ url_for('profile') }}" class="d-flex flex-column align-items-center">
+    <div class="form-group text-center">
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" class="form-control mb-3" name="first_name" placeholder="First Name" value="{{ user[0] if user else '' }}" required style="width: 300px;">
+    </div>
+    <div class="form-group text-center">
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" class="form-control mb-3" name="last_name" placeholder="Last Name" value="{{ user[1] if user else '' }}" required style="width: 300px;">
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+{% endblock %}
