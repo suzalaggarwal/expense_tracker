@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="text-center mb-4">Add Expense</h2>
+<div class="d-flex justify-content-center">
+    <form method="POST" action="{{ url_for('add_expense') }}" class="p-4 border rounded" style="width: 50%; background-color: #f8f9fa;">
+        <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" class="form-control" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" class="form-control" id="category" name="category" placeholder="Enter category" required>
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="number" class="form-control" id="amount" name="amount" step="0.01" placeholder="Enter amount" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter description (optional)"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Add Expense</button>
+    </form>
+</div>
+{% endblock %}
